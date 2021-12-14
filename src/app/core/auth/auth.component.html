@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row d-flex flex-row">
+    <div class="col-6 login-image">
+    </div>
+    <div class="col-6 m-auto">
+      <div class="login-form">
+        <h2 class="login-title my-4 text-center"><strong>Login</strong></h2>
+        <form [formGroup]="loginForm" class="mb-5">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="email" class="form-control" id="username" formControlName="username">
+            <div class="alert alert-danger mt-1" *ngIf="username.invalid && (submitted || (username.dirty || username.touched))">
+              <div *ngIf="username.errors.required">
+                Username is required.
+              </div>
+              <div *ngIf="username.errors.email">
+                Username is invalid.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            <div class="alert alert-danger mt-1" *ngIf="password.invalid && (submitted || (password.dirty || password.touched))">
+              <div *ngIf="password.errors.required">
+                Password is required.
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" (click)="login()">Sign in</button>
+          <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        </form>
+        <div class="signup text-center">
+          <span>don't have an account? <a [routerLink]="['/signup']">Sign Up</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
