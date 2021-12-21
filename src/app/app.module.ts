@@ -12,6 +12,7 @@ import { JwtInterceptor } from '@core/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from '@core/interceptors/error.interceptor';
 import { HomeComponent } from './core/components/home/home.component';
 import { SignupComponent } from './core/auth/signup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SignupComponent } from './core/auth/signup.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -16,8 +16,7 @@ export class AuthService {
 
     login(username: string, password: string){
      return this.http.post(this.BASE_URI, {username, password}).pipe(map((res: any) => {
-      this.router.navigate(['/home']);
-      localStorage.setItem(this.TOKEN_HEADER, JSON.stringify(res.token));
+      localStorage.setItem(this.TOKEN_HEADER, res.token);
       return res;
      }));
     }

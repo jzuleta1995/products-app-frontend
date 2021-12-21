@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row text-right">
+    <button class="btn btn-primary my-4">Create Product</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"  class="text-center" *ngFor="let column of displayedColumns">{{ column }}</th>
+        <th scope="col"  class="text-center" >Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productList">
+        <td>{{ product.name }}</td>
+        <td class="text-right">{{ product.price | currency }}</td>
+        <td class="text-center">{{ product.quantity }}</td>
+        <td>{{ product.description }}</td>
+        <td class="text-center">{{ product.createdAt }}</td>
+        <td class="text-center">{{ product.user }}</td>
+        <td class="text-center">
+          <button class="btn btn-primary mr-2"><i class='bx bx-edit-alt'></i></button>
+          <button class="btn btn-danger"><i class='bx bx-x' ></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator [pageSizeOptions]="pageSizeOptions"
+                 [length]="length"
+                 [pageSize]="pageSize"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

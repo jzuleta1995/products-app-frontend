@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
   public active: boolean;
 
   public items : any = [
-    { name: 'Products', link: '/products', icon: 'bx bx-cart-alt', tooltip:"products" }
+    { name: 'Products', link: '/home/product-list', icon: 'bx bx-cart-alt', tooltip:"products" }
   ]
 
   constructor(private authService: AuthService) { }

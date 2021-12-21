@@ -47,6 +47,7 @@ export class AuthComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(res => {
       console.log(res);
+      this.router.navigate(['/home']);
     }, error => {
       this.error = error;
 
